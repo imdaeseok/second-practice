@@ -1,0 +1,492 @@
+#include <stdio.h> => 지시자
+
+in main() => 함수 
+{
+		
+  int height;		=> 변수형 선언
+  height =8; 		=> 할당
+  
+
+  volume = height*length*width;
+weight = (volume + 165) / 166;
+printf("dimensions : %d*%d*%d\n", length, width, height);
+printf("volume (cubic inches ) : %d\n", volume);
+printf("dimensional weight (pounds) : %d\n", weight);		=> 구문
+}
+
+==================================================
+1. 
+#include<stdio.h>
+
+int main()
+{
+	
+	int height, length, width, volume, weight;
+	height =8;
+	length = 12;
+	width = 10;
+	
+	/*
+	int height =8, length = 12, width =10; 
+	
+	*/
+	
+	volume = height*length*width;
+	weight = (volume + 165) / 166;
+	printf("dimensions : %d*%d*%d\n", length, width, height);
+	printf("volume (cubic inches ) : %d\n", volume);
+	printf("dimensional weight (pounds) : %d\n", weight);
+	
+	return 0;
+			
+}
+
+2.
+#include <stdio.h>
+
+int main()
+{
+	int height, length, width, volume, weight;
+	
+	printf("enter height of box: ");
+	scanf("%d", &height);
+	printf("enter length of box: ");
+	scanf("%d", &length);
+	printf("enter width of box: ");
+	scanf("%d", &width);
+	
+	volume = height * length * width;
+	weight = (volume + 165) / 166;
+	
+	printf("Volume (cubic inches): %d\n", volume);
+	printf("Dimensional weight (pounds): %d\n", weight);
+	
+	return 0;
+	
+}
+
+3.
+#include <stdio.h>
+#define FREEZING_PT 32.0f
+#define SCALE_FACTOR (5.0f / 9.0f)
+
+int main()
+{
+	float fahrenheit, celsius;      // 화씨, 섭씨  
+	printf("enter fahrenheit temperature: ");
+	scanf("%f", &fahrenheit);
+	
+	celsius = (fahrenheit - FREEZING_PT) * SCALE_FACTOR;
+	printf("celsius equivalent : %.1f\n", celsius); // 소수점 이하 1자리 %0.1f 
+	
+	return 0;
+			
+}
+
+
+4.
+#include <stdio.h>
+
+int main()
+{
+	int num1, denom1, num2, denom2, result_num, result_denom;
+	
+	printf("첫번째 분수를 입력하라: ");
+	scanf("%d/%d", &num1, &denom1);
+	
+	printf("두번째 분수를 입력하라: ");
+	scanf("%d/%d", &num2, &denom2);
+	
+	result_num = num1 * denom2 + num2 * denom1;
+	result_denom= denom1 * denom2;
+	
+	printf("둘의합은 %d/%d입니다.\n", result_num, result_denom);
+	
+	return 0;
+	
+	
+	
+	
+}
+===========================================================
+확장비트열 
+/a(경보,종소리)
+/n 새줄
+/t 커서 한탭 뒤로 
+
+
+
+20.06.02
+간단한 예시를 볼까요? scanf을 통해 두 개의 정수짝을 입력받는다고 해봅시다.
+
+printf("두 개의 숫자를 입력하세요: ");
+scanf("%d%d", &i, &j);
+사용자가 다음과 같이 입력했다고 해봅시다.
+
+4, 28
+
+scanf은 4를 읽고 i에 저장하겠죠? 이제 두번째 숫자를 찾아야할텐데, scanf은 쉼표를 다음으로 읽게될 거에요. 숫자는 쉼표로 시작하지 않으니까 scanf은 즉시 종료되고 반환해요. 쉼표랑 두번째 숫자는 다음 scanf 호출을 위해 뒤로 미뤄지게 되죠.
+
+당연히 이러한 문제는 서식문자열에 쉼표를 더해주는 걸로 손쉽게 해결해 줄 수 있어요. 물론, 앞으로는 반드시 쉼표로 입력해줘야 되겠지만요.
+
+printf("두 개의 숫자를 입력하세요: ");
+scanf("%d,%d", &i, &j);
+
+변수란 프로그램이 실행되었을 때 계산되는 값을 의미하고, 
+상수는 변하지 않는 값을 의미한다
+
+논리연산자 - "i는 0보다 크고 i는 0보다 작다"와 같은 조건을 만드는 데 필요한 연산자이다.
+
+++i는 "당장 증가해"라는 뜻이고, i++는 "지금은 원래 값 쓰고 나중에 증가해"
+
+
+&&	논리곱
+||	논리합
+
+expr1 && expr2: expr1과 expr2가 둘 다 0이 아닌 값이면 1이다.
+expr1 || expr2: expr1 혹은 expr2, 혹은 둘 다 0이 아닌 값이면 1이다.
+
+(조건표현식)
+if (i > j)
+    return i;
+else
+    return j;
+
+if (i > j)
+    printf("%d\n", i);
+else
+    printf("%d\n", j);
+
+<3 switch문>
+switch (grade) {
+    case 4:  printf("훌륭해요!")
+             break;
+    case 3:  printf("좋아요!");
+             break;
+    case 2:  printf("평균이네요!");
+             break;
+    case 1:  printf("좋지 않아요!");
+             break;
+    case 0:  printf("좀 더 노력하세요!");
+             break;
+    default: printf("잘못된 학점입니다");
+             break;
+}
+
+switch (grade) {
+    case 4: case 3: case 2: case 1:
+             printf("좋지 않아요!");
+             break;
+    case 0:  printf("좀 더 노력하세요!");
+             break;
+    default: printf("잘못된 학점입니다");
+             break;
+}
+
+[프로그래밍] 날짜를 법률상의 서식으로 출력하기
+/* 날짜를 미국 법적 형식으로 출력한다 */
+
+#include <stdio.h>
+
+int main()
+{
+	int month, day, year;
+	
+	printf("날짜를 입력하세요 (mm/dd/yy): ");
+	scanf("%d /%d /%d", &month, &day, &year);
+	
+	printf("dated this %d", day);
+	switch (day) {
+		case 1: case 21: case 31:
+			printf("st");
+			break;
+		case 2: case 22:
+			printf("nd");
+			break;
+			
+		case 3: case 23:
+			printf("rd"); 
+			break;
+			
+		default:
+			printf("Th");
+			break;		
+	}
+	printf(" day of ");
+	
+	switch (month) {
+		case 1: printf("january"); 
+			break;
+		case 2: printf("February"); 
+			break;
+		case 3: printf("March"); 
+			break;
+		case 4: printf("April"); 
+			break;
+		case 5: printf("May"); 
+			break;
+		case 6: printf("June"); 
+			break;
+		case 7: printf("July"); 
+			break;
+		case 8: printf("August"); 
+			break;
+		case 9: printf("September"); 
+			break;
+		case 10: printf("October"); 
+			break;
+		case 11: printf("November"); 
+			break;
+		case 12: printf("December"); 
+			break;	
+									
+	}
+	
+	printf(" , 20%.2d.\n", year);
+	return 0;
+}
+
+[프로그래밍] 제곱표 출력하기 -  내가 짠것 
+	
+#include <stdio.h>
+
+int main()
+{
+			int i= i^2;
+
+	printf("본 프로그램은 제곱수 표를 출력합니다.");
+	printf("본 표의 크기를 결정하세요:");
+	scanf("%d, &i");
+	
+	while( i<6);
+	{
+		
+		printf("%d, i");
+		i++;
+	}
+	
+}	
+
+#include <stdio.h>       - 정답
+
+int main()
+{
+
+	
+	int i, n; // n은 크기 , i는 횟수  
+	
+	printf("본프로그램은 제곱수 표를 출력.\n");
+	printf("본표의 크기를 결정해라 :");
+	scanf("%d", &n);
+	
+	i=1;
+	while(i<=n)
+	{
+		printf("%8d%8d\n", i, i*i);
+		i++;
+		
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main()
+{
+	int i = 0;
+	int n = 0;
+
+	printf("this pro prints a table of squares.\n");
+	printf("enter num of entries in table:");
+	scanf_s("%d", &n);
+
+	for (i = 1; i <= n; i++)
+	{
+		printf("%10d%10d\n", i, i*i);
+	}
+	return 0;
+}
+
+
+
+[프로그래밍] 수열의 합 구하기           ===========> 디버그 찍어보기
+
+#include <stdio.h>
+
+int main()
+{
+	int sum=0;
+	int n=0; // n은 크기 , i는 횟수  
+	
+	printf("본프로그램은 정수열합을 출력");
+	printf("정수여러개 입력하라(수열끝내려면 0입력):");
+	scanf("%d , &n");
+	
+	while(n!=0)
+	{
+		sum+=n;
+		scanf("%d",&n);
+	
+	}
+	
+	printf("정수열 합: %d", sum);
+	return 0;
+	
+	
+}
+
+무한루프 => for(;;)
+
+
+for   (   expr1   ;   expr2   ;   expr3   )    statement
+for (i = 10; i > 0; i--)
+    printf("T 빼기 %d, 세는 중\n", i);
+==
+expr1;
+while  (  expr2  ) {
+    statements
+    expr3;
+}
+
+
+[프로그래밍] 은행계좌 프로그램
+#include <stdio.h>
+
+int main()
+{
+	int cmd;
+	float balance = 0.0f;
+	float credit;
+	float debit;
+
+	printf("*** ACME checkbook-balancing program ***\n");
+	printf("commands: 0=clear, 1=credit, 2=debit, 3=balance, 4= exit\n\n");
+
+	for (;;)
+	{
+		printf("enter command:");
+		scanf_s("%d", &cmd);
+		 
+		switch (cmd)
+		{
+		case 0:
+			balance = 0.0f;
+			break;
+		case 1:
+			printf("enter amount of credit:");
+			scanf_s("%f", &credit);
+			balance += credit;
+			break;
+		case 2:
+			printf("enter amount of debit:");
+			scanf_s("%f", &debit);
+			balance -= debit; 
+			break;
+		case 3:
+			printf("current balance: $%.2f\n", balance);
+			break;
+
+		case 4:
+			return 0;
+
+		default:
+			printf("commands: 0=clear, 1=credit, 2= debit, 3=balance, 4=exit\n\n");
+			break;
+
+		}
+	}
+}
+
+[프로그래밍] 수열의 합 구하기 2
+
+#include <stdio.h>
+
+int main()
+{
+	long n, sum = 0;
+
+	printf("본프로그램은 정수열 합을 출력.\n");
+	printf("정수 여러개 입력 (수열끝내려면 0입력):");
+
+	scanf_s("%ld", &n);
+
+	while (n != 0)
+	{
+		sum += n;
+		scanf_s("%ld", &n);
+
+	}
+
+	printf("정수열 합: %ld", sum);
+
+	return 0;
+
+}
+
+문자형 상수는 큰따옴표가 아닌 작은따옴표로 표시한다.
+
+char c;
+short int s;
+int i;
+unsigned int u;
+long int l;
+unsigned long int ul;
+float f;
+double d;
+long double ld;
+=============================================================
+(형정의) 형정의는 프로그램의 유지보수성을 높여주기도 한다
+float이 아니라 double을 사용해야한다면 그저 형정의 부분만 바꿔주면 된다:
+ 선언부는 바꿔줄 필요가 없다는 의미
+달러값을 저장하는 모든 float 변수들을 전부 double로 선언부를 바꿔주는,
+
+typedef float Dollars;
+Dollars cash_int, cash_out;
+
+typedef int Quantity;
+Quantity q;
+=============================================================
+
+배열의 길이를 나중에 수정을 해주고 싶다면, 배열의 크기를 매크로 정의해주는 것이 좋은 실무 습관이다:
+
+#define N 10
+int a[N];
+
+#include <stdio.h>
+#define n 10
+int main()
+{
+	int a[n], i; // n은 a[10] 배열 10까지 i는 횟수 0 1 2 3 4 5 ...
+	printf("enter %d numbers:", n);
+	for (i = 0; i < n; ++i)
+		scanf_s("%d", &a[i]);
+
+	printf("in reverse order: ");
+	for (i = n - 1; i >= 0; --i)
+		printf("%d", a[i]);
+	printf("\n");
+	 
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
